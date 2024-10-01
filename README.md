@@ -1,10 +1,13 @@
 # K6 eCommerce Demo Scripts
 
-## Introduction
+## Overview
 
 This repo contains some example K6 scripts for interacting with a basic WooCommerce website hosted at https://liamseprod.wpenginepowered.com/. 
 
 This repo has been cloned and adapted from from the official K6 WooCommerce example located at https://github.com/grafana/k6-example-woocommerce/ 
+
+
+## Introduction
 
 The scripts have been modularized so that each distinct "user action" manifests as its own source file, intended to be used from the entry script, in this case `main.js`. Doing so promotes code reuse and maintainability, as well as catering for some degree of flexibility over the order in which the scripts should run. Obviously, products need to have been added to the cart before checkout can be completed successfully, so there is some sequence that needs to be maintained for them to work as expected.
 
