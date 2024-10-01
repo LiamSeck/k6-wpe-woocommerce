@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repo contains some example k6 scripts interacting with a basic WooCommerce website hosted at https://liamseprod.wpenginepowered.com/. 
+This repo contains some example K6 scripts for interacting with a basic WooCommerce website hosted at https://liamseprod.wpenginepowered.com/. 
 
 This repo has been cloned and adapted from from the official K6 WooCommerce example located at https://github.com/grafana/k6-example-woocommerce/ 
 
