@@ -13,11 +13,10 @@ export const options = {
     projectID: 3717362,
     // Test runs with the same name groups test runs together.
     name: 'Load Testing of https://liamseprod.wpenginepowered.com/',
-  
+
     distribution: {
       AWSLondon: { loadZone: 'amazon:gb:london', percent: 100 },
-    }
-
+    },
   }
 };
 
