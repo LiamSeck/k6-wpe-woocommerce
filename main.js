@@ -6,10 +6,19 @@ import { updateAddress } from "./updateAddress.js";
 import { submitCheckout } from "./submitCheckout.js";
 
 export const options = {
-  executor: 'constant-vus',
-  vus: 10,
+  vus: 20,
   duration: '5m',
+  cloud: {
+    // Project: WPE WooCommerce Load Testing
+    projectID: 3717362,
+    // Test runs with the same name groups test runs together.
+    name: 'Load Testing of https://liamseprod.wpenginepowered.com/',
+  
+    distribution: {
+      AWSLondon: { loadZone: 'amazon:gb:london', percent: 100 },
+    }
 
+  }
 };
 
 // used to store global variables
