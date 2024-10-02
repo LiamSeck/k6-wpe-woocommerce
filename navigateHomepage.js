@@ -25,7 +25,7 @@ export function navigateHomepage() {
       printOnError: true
     });
 
-    // extract all of the available products using their "Add to Cart" buttons
+    // extract all of the available products using their "Add to Basket" buttons
     const addToCartButtons = response
       .html()
       .find("li[class*=product]")
