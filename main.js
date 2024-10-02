@@ -35,10 +35,16 @@ globalThis.pauseMin = 5;
 globalThis.pauseMax = 10;
 
 export default function main() {
+  // Executes requests defined in navigateHomepage() script
   navigateHomepage();
+  // Executes requests defined in addToCart()
   addToCart();
+  // Executes requests defined in navigateToCart()
   navigateToCart();
+  // Executes requests defined in
   navigateToCheckout();
+  // Executes requests defined in navigateToCheckout()
   updateAddress();
+  // Executes requests defined in submitCheckout()
   submitCheckout();
 }
