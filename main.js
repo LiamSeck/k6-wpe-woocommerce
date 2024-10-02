@@ -13,10 +13,17 @@ export const options = {
     projectID: 3717362,
     // Test runs with the same name groups test runs together.
     name: 'Load Testing of https://liamseprod.wpenginepowered.com/',
-
+    // Adding Load Zone so that traffic routes from amazon:gb:london over the default location
     distribution: {
       AWSLondon: { loadZone: 'amazon:gb:london', percent: 100 },
     },
+    // Adding request error rates and request duration thresholds 
+    thresholds: {
+      http_req_failed: ['rate<0.01'], // http errors should be less than 1%
+      http_req_duration: ['p(95)<200'], // 95% of requests should be below 200ms
+    },
+
+
   }
 };
 
