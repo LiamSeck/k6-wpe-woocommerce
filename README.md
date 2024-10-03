@@ -18,6 +18,7 @@ Please note that the server hosting the site is not scaled for heavy loads; the 
 1. Install [k6](https://k6.io) (instructions [here](https://k6.io/docs/getting-started/installation/))
 2. Clone the repo
 3. Navigate to the directory and `k6 run main.js` (make sure k6 is on your PATH)
+4. Run `k6 run -e HOSTNAME=domain.com  main.js` to change the base URL of the site you are looking to test against (assumes a default WooCommerce installation with default paths)
 
 ## Contents
 
