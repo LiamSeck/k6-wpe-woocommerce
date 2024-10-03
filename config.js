@@ -1,1 +1,1 @@
-export const base_url = __ENV.HOSTNAME || 'domain.com';
+export const base_url = __ENV.HOSTNAME || 'liamseprod.wpenginepowered.com';

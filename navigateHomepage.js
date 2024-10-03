@@ -1,3 +1,4 @@
+import { base_url } from "./config.js";
 import { sleep, group } from "k6";
 import http from "k6/http";
 import { checkStatus } from "./utils.js";
@@ -5,7 +6,8 @@ import { randomIntBetween } from "https://jslib.k6.io/k6-utils/1.1.0/index.js";
 
 export function navigateHomepage() {
   group("Navigate to Products Page", function () {
-    let response = http.get("https://liamseprod.wpenginepowered.com/products/", {
+    // Make GET request to Products Page
+    let response = http.get(`https://${base_url}/products/`, {
       headers: {
         accept:
           "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -13,11 +15,12 @@ export function navigateHomepage() {
         "accept-language": "en-US,en;q=0.9",
         "cache-control": "max-age=600",
         connection: "keep-alive",
-        host: "liamseprod.wpenginepowered.com",
+        host: `${base_url}`,
         "upgrade-insecure-requests": "1",
       },
     });
-
+    // Check request response code for is a 200 OK 
+    // CheckStatus function has been imported from ".utils.js"
     checkStatus({
       response: response,
       expectedStatus: 200,
@@ -48,7 +51,7 @@ export function navigateHomepage() {
     console.debug(`Selected Product with ID: '${globalThis.vars["selectedProduct"].id}' and SKU: '${globalThis.vars["selectedProduct"].sku}'`);
 
     response = http.post(
-      "https://liamseprod.wpenginepowered.com/?wc-ajax=get_refreshed_fragments",
+      `https://${base_url}/?wc-ajax=get_refreshed_fragments`,
       {
         time: Date.now(),
       },
@@ -60,8 +63,8 @@ export function navigateHomepage() {
           connection: "keep-alive",
           "content-type":
             "application/x-www-form-urlencoded;type=content-type;mimeType=application/x-www-form-urlencoded",
-          host: "liamseprod.wpenginepowered.com",
-          origin: "https://liamseprod.wpenginepowered.com",
+          host: `${base_url}`,
+          origin: `https://${base_url}`,
           "x-requested-with": "XMLHttpRequest",
         },
       }

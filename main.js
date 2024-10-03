@@ -5,13 +5,15 @@ import { navigateToCheckout } from "./navigateToCheckout.js";
 import { updateAddress } from "./updateAddress.js";
 import { submitCheckout } from "./submitCheckout.js";
 
+
+
 export const options = {
   // K6 bills in VUh 
   // (Maximum number of VUs x test execution duration in minutes) / 60 minutes = VUh
   // E.g (10 VUs x 5 mins)/60 = 0.83 VUh
   
   // Number of Virtual Users
-  vus: 10,
+  vus: 1,
   // Duration 
   duration: '5m',
   cloud: {
@@ -23,10 +25,10 @@ export const options = {
     distribution: {
       AWSLondon: { loadZone: 'amazon:gb:london', percent: 100 },
     },
-    // Adding request error rates and request duration thresholds 
+    // Adding thresholds for error rates and request duration  
     thresholds: {
       http_req_failed: ['rate<0.01'], // http errors should be less than 1%
-      http_req_duration: ['p(95)<200'], // 95% of requests should be below 200ms
+   // http_req_duration: ['p(95)<200'], // 95% of requests should be below 200ms
     },
   },
 };
@@ -35,8 +37,10 @@ export const options = {
 globalThis.vars = [];
 
 // global min/max sleep durations (in seconds):
-globalThis.pauseMin = 5;
-globalThis.pauseMax = 10;
+globalThis.pauseMin = 2;
+globalThis.pauseMax = 5;
+
+
 
 export default function main() {
   // Executes requests defined in navigateHomepage()

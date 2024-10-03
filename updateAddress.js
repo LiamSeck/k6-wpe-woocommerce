@@ -1,3 +1,4 @@
+import { base_url } from "./config.js";
 import { sleep, group } from "k6";
 import http from "k6/http";
 import { checkStatus } from "./utils.js";
@@ -6,7 +7,7 @@ import { randomIntBetween } from "https://jslib.k6.io/k6-utils/1.1.0/index.js";
 export function updateAddress() {
   group("Update Address", function () {
     let response = http.post(
-      "https://liamseprod.wpenginepowered.com/?wc-ajax=update_order_review",
+      `https://${base_url}/?wc-ajax=update_order_review`,
       {
         security: globalThis.vars["securityToken"],
         payment_method: "cod",
@@ -33,8 +34,8 @@ export function updateAddress() {
           connection: "keep-alive",
           "content-type":
             "application/x-www-form-urlencoded;type=content-type;mimeType=application/x-www-form-urlencoded",
-          host: "liamseprod.wpenginepowered.com",
-          origin: "https://liamseprod.wpenginepowered.com",
+          host: `${base_url}`,
+          origin: `https://${base_url}`,
           "x-requested-with": "XMLHttpRequest",
         },
       }
@@ -48,7 +49,7 @@ export function updateAddress() {
     });
 
     response = http.post(
-      "https://liamseprod.wpenginepowered.com/?wc-ajax=update_order_review",
+      `https://${base_url}/?wc-ajax=update_order_review`,
       {
         security: globalThis.vars["securityToken"],
         payment_method: "cod",
@@ -76,8 +77,8 @@ export function updateAddress() {
           connection: "keep-alive",
           "content-type":
             "application/x-www-form-urlencoded;type=content-type;mimeType=application/x-www-form-urlencoded",
-          host: "liamseprod.wpenginepowered.com",
-          origin: "https://liamseprod.wpenginepowered.com",
+          host: `${base_url}`,
+          origin: `https://${base_url}`,
           "x-requested-with": "XMLHttpRequest",
         },
       }

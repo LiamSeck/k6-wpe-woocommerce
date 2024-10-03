@@ -1,3 +1,4 @@
+import { base_url } from "./config.js";
 import { sleep, group, check, fail } from "k6";
 import http from "k6/http";
 import { checkStatus } from "./utils.js";
@@ -10,7 +11,7 @@ export function submitCheckout() {
 
   group("Submit Checkout", function () {
     response = http.post(
-      "https://liamseprod.wpenginepowered.com/?wc-ajax=checkout",
+      `https://${base_url}/?wc-ajax=checkout`,
       {
         billing_first_name: "FirstName",
         billing_last_name: "LastName",
@@ -36,8 +37,8 @@ export function submitCheckout() {
           connection: "keep-alive",
           "content-type":
             "application/x-www-form-urlencoded;type=content-type;mimeType=application/x-www-form-urlencoded",
-          host: "liamseprod.wpenginepowered.com",
-          origin: "https://liamseprod.wpenginepowered.com",
+          host: `${base_url}`,
+          origin: `https://${base_url}`,
           "x-requested-with": "XMLHttpRequest",
         },
       }
@@ -102,7 +103,7 @@ export function submitCheckout() {
       globalThis.vars["redirectUrl"],
       {
         tags: {
-          name: "https://liamseprod.wpenginepowered.com/checkout/order-received/"
+          name: `https://${base_url}/checkout/order-received/`
         },
         headers: {
           accept:
@@ -110,7 +111,7 @@ export function submitCheckout() {
           "accept-encoding": "gzip, deflate",
           "accept-language": "en-US,en;q=0.9",
           connection: "keep-alive",
-          host: "liamseprod.wpenginepowered.com",
+          host: `${base_url}`,
           "upgrade-insecure-requests": "1",
         },
       }
@@ -128,7 +129,7 @@ export function submitCheckout() {
     });
 
     response = http.post(
-      "https://liamseprod.wpenginepowered.com/?wc-ajax=get_refreshed_fragments",
+      `https://${base_url}/?wc-ajax=get_refreshed_fragments`,
       {
         time: "1613672584353",
       },
@@ -140,8 +141,8 @@ export function submitCheckout() {
           connection: "keep-alive",
           "content-type":
             "application/x-www-form-urlencoded;type=content-type;mimeType=application/x-www-form-urlencoded",
-          host: "liamseprod.wpenginepowered.com",
-          origin: "https://liamseprod.wpenginepowered.com",
+          host: `${base_url}`,
+          origin: `https://${base_url}`,
           "x-requested-with": "XMLHttpRequest",
         },
       }
