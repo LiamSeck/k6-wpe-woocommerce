@@ -32,7 +32,7 @@ export function navigateHomepage() {
     const addToCartButtons = response
       .html()
       .find("li[class*=product]")
-      .find('a:contains("Add to Basket")')
+      .find('a:contains("Add to Basket"), a:contains("Add to Cart")')
       .toArray();
 
     const products = addToCartButtons.map(i => {
