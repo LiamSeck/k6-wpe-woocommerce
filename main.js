@@ -18,9 +18,9 @@ export const options = {
   duration: '5m',
   cloud: {
     // Project: WPE WooCommerce Load Testing
-    projectID: 3717362,
+    projectID: 8290357,
     // Test runs with the same name groups test runs together.
-    name: 'Load Testing of https://liamseprod.wpenginepowered.com/',
+    name: 'EVLV Baseline Test: https://liamseprod.wpenginepowered.com/',
     // Adding Load Zone so that traffic routes from amazon:gb:london over the default location
     distribution: {
       AWSLondon: { loadZone: 'amazon:us:columbus', percent: 100 },
