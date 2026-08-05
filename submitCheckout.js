@@ -8,7 +8,43 @@ import jsonpath from "https://jslib.k6.io/jsonpath/1.0.2/index.js";
 
 export function submitCheckout() {
   let response;
+// UK Based checkout with Cash on Delivery (COD) payment method
+//   group("Submit Checkout", function () {
+//     response = http.post(
+//       `https://${base_url}/?wc-ajax=checkout`,
+//       {
+//         billing_first_name: "FirstName",
+//         billing_last_name: "LastName",
+//         billing_company: "",
+//         billing_country: "GB",
+//         billing_address_1: "Address Line One",
+//         billing_address_2: "",
+//         billing_city: "London",
+//         billing_state: "",
+//         billing_postcode: "AA901XX",
+//         billing_phone: "00000000000",
+//         billing_email: "liam.seck@wpengine.com",
+//         order_comments: "K6 Order",
+//         payment_method: "cod",
+//         "woocommerce-process-checkout-nonce": globalThis.vars["checkoutToken"],
+//         _wp_http_referer: "/?wc-ajax=update_order_review",
+//       },
+//       {
+//         headers: {
+//           accept: "application/json, text/javascript, */*; q=0.01",
+//           "accept-encoding": "gzip, deflate",
+//           "accept-language": "en-US,en;q=0.9",
+//           connection: "keep-alive",
+//           "content-type":
+//             "application/x-www-form-urlencoded;type=content-type;mimeType=application/x-www-form-urlencoded",
+//           host: `${base_url}`,
+//           origin: `https://${base_url}`,
+//           "x-requested-with": "XMLHttpRequest",
+//         },
+//       }
+//     );
 
+// US Based checkout with Cash on Delivery (COD) payment method
   group("Submit Checkout", function () {
     response = http.post(
       `https://${base_url}/?wc-ajax=checkout`,
@@ -16,12 +52,12 @@ export function submitCheckout() {
         billing_first_name: "FirstName",
         billing_last_name: "LastName",
         billing_company: "",
-        billing_country: "GB",
+        billing_country: "US",
         billing_address_1: "Address Line One",
         billing_address_2: "",
-        billing_city: "London",
-        billing_state: "",
-        billing_postcode: "AA901XX",
+        billing_city: "Los Angeles",
+        billing_state: "California",
+        billing_postcode: "90001",
         billing_phone: "00000000000",
         billing_email: "liam.seck@wpengine.com",
         order_comments: "K6 Order",
