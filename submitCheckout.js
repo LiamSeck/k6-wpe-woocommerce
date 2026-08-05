@@ -23,7 +23,7 @@ export function submitCheckout() {
         billing_state: "",
         billing_postcode: "AA901XX",
         billing_phone: "00000000000",
-        billing_email: "contact@kcesmail.tech",
+        billing_email: "liam.seck@wpengine.com",
         order_comments: "K6 Order",
         payment_method: "cod",
         "woocommerce-process-checkout-nonce": globalThis.vars["checkoutToken"],

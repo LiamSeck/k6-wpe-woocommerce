@@ -13,7 +13,7 @@ export const options = {
   // E.g (10 VUs x 5 mins)/60 = 0.83 VUh
   
   // Number of Virtual Users
-  vus: 1,
+  vus: 20,
   // Duration 
   duration: '5m',
   cloud: {
@@ -23,7 +23,7 @@ export const options = {
     name: 'Load Testing of https://liamseprod.wpenginepowered.com/',
     // Adding Load Zone so that traffic routes from amazon:gb:london over the default location
     distribution: {
-      AWSLondon: { loadZone: 'amazon:gb:london', percent: 100 },
+      AWSLondon: { loadZone: 'amazon:us:columbus', percent: 100 },
     },
     // Adding thresholds for error rates and request duration  
     thresholds: {
